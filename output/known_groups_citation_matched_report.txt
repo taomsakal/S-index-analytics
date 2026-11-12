@@ -1,0 +1,60 @@
+CITATION-MATCHED KNOWN-GROUPS VALIDATION
+========================================
+
+Input rows: 13,940
+Headline matching seed: 42
+Eligible-control draws: 500
+Matching: 1:1 without replacement on primary_domain; control drawn at random
+  from in-domain controls with citation count within 10% of the author's
+  (|log1p difference| <= 0.0953)
+Inference: one-sided paired Wilcoxon; BH FDR across Overall and computable fields
+
+MATCHING
+--------
+Eligible authors: 324
+Matched pairs: 323
+Authors without an eligible control: 1
+Researchers excluded for no classified domain: 911
+Citation SMD (raw counts): -0.0021
+Citation SMD (log1p): -0.0017
+Max |log1p citation difference| in a pair: 0.0953
+h-index SMD (not matched on): 0.0189
+
+PRIMARY AND FIELD RESULTS (headline seed)
+-----------------------------------------
+Overall: n=323; author wins 114 vs control wins 37; S>0 authors 37.2% vs controls 15.2%; Wilcoxon p=5.26475e-08; FDR p=1.05295e-07
+Health Sciences: n=28; author wins 7 vs control wins 3; S>0 authors 28.6% vs controls 14.3%; Wilcoxon p=0.110486; FDR p=0.110486
+Life Sciences: n=87; author wins 18 vs control wins 9; S>0 authors 21.8% vs controls 10.3%; Wilcoxon p=0.0761579; FDR p=0.101544
+Physical Sciences: n=197; author wins 87 vs control wins 20; S>0 authors 46.2% vs controls 15.2%; Wilcoxon p=3.66549e-08; FDR p=1.05295e-07
+Social Sciences: n=11; author wins 2 vs control wins 5; S>0 authors 18.2% vs controls 54.5%; Wilcoxon p=not tested; FDR p=not tested; Sample too small for reliable inference (n=11 < 15)
+
+500-DRAW STABILITY
+-------------------
+Overall: n=323; p<0.05 in 100.0% of draws; p<0.001 in 100.0%; FDR p<0.05 in 100.0%; median p 1.45288e-09 (range 4.56563e-16 to 3.44966e-05); author wins 103-120, control wins 24-56
+Health Sciences: n=28; p<0.05 in 19.8% of draws; p<0.001 in 0.0%; FDR p<0.05 in 17.8%; median p 0.134414 (range 0.00580802 to 0.87564); author wins 4-8, control wins 0-10
+Life Sciences: n=87; p<0.05 in 46.8% of draws; p<0.001 in 1.8%; FDR p<0.05 in 40.4%; median p 0.0562402 (range 0.000140963 to 0.757202); author wins 14-19, control wins 1-16
+Physical Sciences: n=197; p<0.05 in 100.0% of draws; p<0.001 in 100.0%; FDR p<0.05 in 100.0%; median p 1.32725e-09 (range 8.3341e-15 to 2.15228e-05); author wins 75-91, control wins 10-35
+Social Sciences: n=11; not tested (field sample below threshold)
+
+S > 0 SUBSET CHECK
+------------------
+Wilcoxon on all pairs vs on pairs where either member has S > 0 (asymptotic
+method for both). Zero-zero pairs have zero difference and are discarded by the
+test, so the two p-values agree whenever no nonzero pair is tied.
+Exact h-index matching (seed 42):
+  Overall: 315 pairs, 145 with S>0, nonzero ties 0; p all=1.30206e-10, p S>0=1.30206e-10, identical=True
+  Health Sciences: 27 pairs, 12 with S>0, nonzero ties 0; p all=0.111025, p S>0=0.111025, identical=True
+  Life Sciences: 82 pairs, 25 with S>0, nonzero ties 0; p all=0.398963, p S>0=0.398963, identical=True
+  Physical Sciences: 195 pairs, 104 with S>0, nonzero ties 0; p all=7.83805e-11, p S>0=7.83805e-11, identical=True
+  Social Sciences: 11 pairs, 4 with S>0, nonzero ties 0; p all=0.230725, p S>0=0.230725, identical=True
+Citation matching (seed 42):
+  Overall: 323 pairs, 151 with S>0, nonzero ties 0; p all=5.26475e-08, p S>0=5.26475e-08, identical=True
+  Health Sciences: 28 pairs, 10 with S>0, nonzero ties 0; p all=0.110486, p S>0=0.110486, identical=True
+  Life Sciences: 87 pairs, 27 with S>0, nonzero ties 0; p all=0.0761579, p S>0=0.0761579, identical=True
+  Physical Sciences: 197 pairs, 107 with S>0, nonzero ties 0; p all=3.66549e-08, p S>0=3.66549e-08, identical=True
+  Social Sciences: 11 pairs, 7 with S>0, nonzero ties 0; p all=0.750519, p S>0=0.750519, identical=True
+
+INTERPRETATION BOUNDARY
+-----------------------
+This is a robustness check on the matching variable. Like the primary analysis,
+it supports convergent validity at the aggregate level only.

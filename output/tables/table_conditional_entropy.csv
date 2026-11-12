@@ -1,0 +1,21 @@
+Domain,Comparison_Metric,S_Filter,N,H_S,H_S_given_metric,Ratio,Interpretation
+All Domains,h-index,All,13940,0.452,0.433,0.957,S nearly independent of metric
+All Domains,h-index,S > 0,1745,3.065,3.008,0.982,S nearly independent of metric
+All Domains,citation count,All,13940,0.452,0.431,0.953,S nearly independent of metric
+All Domains,citation count,S > 0,1745,3.065,2.971,0.969,S nearly independent of metric
+Life Sciences,h-index,All,2218,0.447,0.441,0.986,S nearly independent of metric
+Life Sciences,h-index,S > 0,224,3.243,2.938,0.906,S nearly independent of metric
+Life Sciences,citation count,All,2218,0.447,0.441,0.985,S nearly independent of metric
+Life Sciences,citation count,S > 0,224,3.243,2.907,0.896,S mostly independent
+Health Sciences,h-index,All,2600,0.447,0.437,0.978,S nearly independent of metric
+Health Sciences,h-index,S > 0,303,3.104,2.943,0.948,S nearly independent of metric
+Health Sciences,citation count,All,2600,0.447,0.434,0.972,S nearly independent of metric
+Health Sciences,citation count,S > 0,303,3.104,2.9,0.934,S nearly independent of metric
+Physical Sciences,h-index,All,5405,0.442,0.423,0.957,S nearly independent of metric
+Physical Sciences,h-index,S > 0,657,3.059,2.955,0.966,S nearly independent of metric
+Physical Sciences,citation count,All,5405,0.442,0.421,0.951,S nearly independent of metric
+Physical Sciences,citation count,S > 0,657,3.059,2.943,0.962,S nearly independent of metric
+Social Sciences,h-index,All,2806,0.459,0.397,0.864,S mostly independent
+Social Sciences,h-index,S > 0,537,3.009,2.864,0.952,S nearly independent of metric
+Social Sciences,citation count,All,2806,0.459,0.394,0.859,S mostly independent
+Social Sciences,citation count,S > 0,537,3.009,2.792,0.928,S nearly independent of metric

@@ -1,0 +1,11 @@
+openalex_id,name,category,reason,evidence,verified_at
+A5069917083,James T. Weedon,author_disambiguation,"OpenAlex profile merges unrelated researchers, including Adrian Stier and Henrik Bengtsson.","Manual OpenAlex profile review.",2026-07-03
+A5095060011,Sheren A. Abd ElHamied And Eman. I. El-Amary,non_individual_profile,"Display name represents multiple people rather than one researcher.","Manual OpenAlex profile review.",2026-07-03
+A5103690981,Victor Morris,author_disambiguation,"Profile merges Berg Larry, Ermold Brian, Howie Joshua, Koontz Annette, and Morris.","Manual OpenAlex display-name-alternatives review.",2026-07-03
+A5114145359,Mark McCarthy,author_disambiguation,"Profile merges Christopher G. Mathew, FinnGen consortium, Kristin Ardlie, and Slave Petrovski.","Manual OpenAlex display-name-alternatives review.",2026-07-03
+A5100614429,Guorui Zhang,author_disambiguation,"Profile includes Xiaoxue Zhang and spans unrelated fields and institutions.","Manual OpenAlex profile review.",2026-07-03
+A5103746673,Mandeep Kaur,author_disambiguation,"Profile merges Arti Tiwari and spans unrelated nuclear physics, computer science, and pharmacy work.","Manual OpenAlex profile review.",2026-07-03
+A5005530395,Michal Podstawski,author_disambiguation,"Profile merges Lehmann Tomasz and Nyczyk Piotr.","Manual OpenAlex display-name-alternatives review.",2026-07-03
+A5038082298,Ronald Reagan,author_disambiguation,"Profile merges the US President, Houck Davis W, and a UCLA Medical Center researcher.","Manual OpenAlex display-name-alternatives review.",2026-07-03
+A5075575977,Clinical Trials,non_individual_profile,"Journal-name profile merges Stefan De Buck and Temitope Adeloye.","Manual OpenAlex display-name-alternatives review.",2026-07-03
+A5055864830,Michael Bedward,metric_artifact,"Three OpenAlex dataset records produce S=84000 because software/package reuse is counted as researcher-level dataset use; exclude this pilot-validation artifact.","Local raw row: data/s_index_seed56_n500_20260203_224530.csv; GeoTools and CRAN package authorship review.",2026-07-13

@@ -1,0 +1,11 @@
+Domain,Comparison_Metric,N_total,N_S>0,N_stewards_percentile,Pct_stewards_of_total,Pct_stewards_of_S>0,S_threshold,Metric_threshold
+All Domains,h-index,13940,1745,111,0.8,6.36,18.0,6.0
+All Domains,citation count,13940,1745,92,0.66,5.27,18.0,193.0
+Life Sciences,h-index,2218,224,25,1.13,11.16,13.0,10.0
+Life Sciences,citation count,2218,224,24,1.08,10.71,13.0,485.5
+Health Sciences,h-index,2600,303,32,1.23,10.56,20.0,10.0
+Health Sciences,citation count,2600,303,28,1.08,9.24,20.0,450.5
+Physical Sciences,h-index,5405,657,42,0.78,6.39,18.0,7.0
+Physical Sciences,citation count,5405,657,35,0.65,5.33,18.0,277.0
+Social Sciences,h-index,2806,537,21,0.75,3.91,18.0,3.0
+Social Sciences,citation count,2806,537,15,0.53,2.79,18.0,50.0

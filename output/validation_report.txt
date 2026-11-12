@@ -1,0 +1,291 @@
+============================================================
+S-INDEX VALIDATION REPORT
+============================================================
+
+----------------------------------------
+DATA PIPELINE SUMMARY
+----------------------------------------
+Raw data records: 139,472
+After filtering: 115,856
+Effective Sample Size (ESS): 15,736 (13.6% of filtered)
+After resampling: 15,736
+After cleaning: 13,940
+
+----------------------------------------
+SAMPLE CHARACTERISTICS
+----------------------------------------
+Total researchers in analysis: 13,940
+With valid S-index and h-index: 13,940
+
+S-index distribution:
+  S > 0 (active data sharers): 1,745 (12.5%)
+  S = 0 (no data sharing impact): 12,195 (87.5%)
+  Among S > 0: median=6.0, mean=45.2
+
+h-index distribution:
+  h = 0: 3,127 (22.4%)
+  h > 0: 10,813 (77.6%)
+  All researchers: median=6, mean=12.5
+
+Citation count distribution:
+  citations = 0: 3,127 (22.4%)
+  citations > 0: 10,813 (77.6%)
+  All researchers: median=193, mean=2033.7
+
+----------------------------------------
+1. CORRELATION WITH TRADITIONAL METRICS
+----------------------------------------
+
+=== ALL DOMAINS ===
+
+S-index vs h_index:
+  Pearson r = 0.069 (p = 0.0000)
+  Spearman rho = 0.184 (p = 0.0000)
+  N = 13940
+
+S-index vs cited_by_count:
+  Pearson r = 0.213 (p = 0.0000)
+  Spearman rho = 0.189 (p = 0.0000)
+  N = 13940
+
+S-index vs num_datasets:
+  Pearson r = 0.017 (p = 0.0421)
+  Spearman rho = 0.145 (p = 0.0000)
+  N = 13940
+
+=== BY DOMAIN ===
+
+Life Sciences (N=2,218, S>0=224):
+  vs h_index: r=0.043, rho=0.077
+  vs cited_by_count: r=0.072, rho=0.083
+  vs num_datasets: r=0.030, rho=0.135
+
+Health Sciences (N=2,600, S>0=303):
+  vs h_index: r=0.033, rho=0.120
+  vs cited_by_count: r=0.025, rho=0.131
+  vs num_datasets: r=0.263, rho=0.146
+
+Physical Sciences (N=5,405, S>0=657):
+  vs h_index: r=0.085, rho=0.166
+  vs cited_by_count: r=0.078, rho=0.171
+  vs num_datasets: r=0.035, rho=0.104
+
+Social Sciences (N=2,806, S>0=537):
+  vs h_index: r=0.178, rho=0.343
+  vs cited_by_count: r=0.574, rho=0.342
+  vs num_datasets: r=0.054, rho=0.270
+
+----------------------------------------
+2. CONDITIONAL ENTROPY
+----------------------------------------
+
+H(S|metric)/H(S) ratio: fraction of S information NOT explained by metric.
+Higher ratio = S-index provides more new information beyond the metric.
+
+=== ALL DOMAINS ===
+
+--- S-index vs h-index ---
+
+All researchers (n=13940):
+  H(S|h) = 0.433 bits
+  H(S) = 0.452 bits
+  Ratio H(S|h)/H(S) = 95.7%
+  NOTE: Low H(S) reflects that 87% have S=0
+
+Researchers with S > 0 only (n=1745):
+  H(S|h) = 3.008 bits
+  H(S) = 3.065 bits
+  Ratio H(S|h)/H(S) = 98.2%
+  (This measures information content among active data sharers)
+
+--- S-index vs citation count ---
+
+All researchers (n=13940):
+  H(S|citations) = 0.431 bits
+  H(S) = 0.452 bits
+  Ratio H(S|citations)/H(S) = 95.3%
+  NOTE: Low H(S) reflects that 87% have S=0
+
+Researchers with S > 0 only (n=1745):
+  H(S|citations) = 2.971 bits
+  H(S) = 3.065 bits
+  Ratio H(S|citations)/H(S) = 96.9%
+  (This measures information content among active data sharers)
+
+=== BY DOMAIN (S > 0 only) ===
+
+Domain                   | vs h-index | vs citations
+-------------------------------------------------------
+Life Sciences            |   90.6%   |   89.6%   |
+Health Sciences          |   94.8%   |   93.4%   |
+Physical Sciences        |   96.6%   |   96.2%   |
+Social Sciences          |   95.2%   |   92.8%   |
+
+----------------------------------------
+3. KNOWN GROUPS VALIDATION (MATCHED)
+----------------------------------------
+
+Comparing data paper authors vs matched controls.
+Matching: exact 1:1 on (domain, h-index), without replacement.
+Every pair is identical on both matching variables by construction.
+Test: Wilcoxon signed-rank (paired, one-sided: authors > controls)
+Overall and domain Wilcoxon p-values use Benjamini-Hochberg FDR correction.
+
+OVERALL:
+  Matched pairs: 315
+  Median S - Authors: 0.0, Controls: 0.0
+  S > 0 - Authors: 37%, Controls: 17%
+  Author wins: 34%, Ties: 54%, Control wins: 12%
+  Wilcoxon p-value: 0.0000 (FDR: 0.0000) ***
+  Exact sign test (wins vs losses): p=1.20e-08
+  Exact paired S>0 test (author+/control0 vs author0/control+): 92 vs 30, p=8.23e-09
+
+HEALTH SCIENCES:
+  Matched pairs: 27
+  Median S - Authors: 0.0, Controls: 0.0
+  S > 0 - Authors: 26%, Controls: 22%
+  Author wins: 26%, Ties: 56%, Control wins: 19%
+  Wilcoxon p-value: 0.1110 (FDR: 0.1480)
+  Exact sign test (wins vs losses): p=3.87e-01
+  Exact paired S>0 test (author+/control0 vs author0/control+): 6 vs 5, p=5.00e-01
+
+LIFE SCIENCES:
+  Matched pairs: 82
+  Median S - Authors: 0.0, Controls: 0.0
+  S > 0 - Authors: 21%, Controls: 15%
+  Author wins: 16%, Ties: 70%, Control wins: 15%
+  Wilcoxon p-value: 0.3990 (FDR: 0.3990)
+  Exact sign test (wins vs losses): p=5.00e-01
+  Exact paired S>0 test (author+/control0 vs author0/control+): 13 vs 8, p=1.92e-01
+
+PHYSICAL SCIENCES:
+  Matched pairs: 195
+  Median S - Authors: 0.0, Controls: 0.0
+  S > 0 - Authors: 46%, Controls: 16%
+  Author wins: 43%, Ties: 47%, Control wins: 10%
+  Wilcoxon p-value: 0.0000 (FDR: 0.0000) ***
+  Exact sign test (wins vs losses): p=8.19e-11
+  Exact paired S>0 test (author+/control0 vs author0/control+): 72 vs 15, p=2.13e-10
+
+SOCIAL SCIENCES:
+  Matched pairs: 11
+  Median S - Authors: 0.0, Controls: 0.0
+  S > 0 - Authors: 18%, Controls: 27%
+  Author wins: 18%, Ties: 64%, Control wins: 18%
+  Wilcoxon p-value: Not computed (n=11 < 15)
+  Exact sign test (wins vs losses): p=6.88e-01
+  Exact paired S>0 test (author+/control0 vs author0/control+): 1 vs 2, p=8.75e-01
+
+NOTE: Both medians = 0 indicates sparse S-index distribution.
+The Wilcoxon test ranks nonzero paired S-index differences; the
+separate exact paired S>0 test evaluates positive prevalence.
+
+----------------------------------------
+3b. S>0 DESCRIPTIVE VIEW (exact matching)
+----------------------------------------
+Analyzing only pairs where at least one member has S > 0.
+
+OVERALL:
+  Pairs with S>0: 145 of 315 (46.0%)
+  Median S - Authors: 6.0, Controls: 0.0
+  Author wins: 73%, Ties: 0%, Control wins: 27%
+  Paired S>0 prevalence p-value (full matched set): 8.23e-09
+
+HEALTH SCIENCES:
+  Pairs with S>0: 12 of 27 (44.4%)
+  Median S - Authors: 3.0, Controls: 0.5
+  Author wins: 58%, Ties: 0%, Control wins: 42%
+  Paired S>0 prevalence p-value (full matched set): 5.00e-01
+
+LIFE SCIENCES:
+  Pairs with S>0: 25 of 82 (30.5%)
+  Median S - Authors: 2.0, Controls: 0.0
+  Author wins: 52%, Ties: 0%, Control wins: 48%
+  Paired S>0 prevalence p-value (full matched set): 1.92e-01
+
+PHYSICAL SCIENCES:
+  Pairs with S>0: 104 of 195 (53.3%)
+  Median S - Authors: 8.0, Controls: 0.0
+  Author wins: 81%, Ties: 0%, Control wins: 19%
+  Paired S>0 prevalence p-value (full matched set): 2.13e-10
+
+SOCIAL SCIENCES:
+  Pairs with S>0: 4 of 11 (36.4%)
+  Median S - Authors: 10.0, Controls: 2.0
+  Author wins: 50%, Ties: 0%, Control wins: 50%
+  Paired S>0 prevalence p-value (full matched set): 8.75e-01
+  Warning: Small descriptive subset (n=4)
+  No second Wilcoxon test is run: removing 0-vs-0 pairs does not change its ranked differences.
+
+----------------------------------------
+3c. MATCHING QUALITY, STABILITY, AND SENSITIVITY
+----------------------------------------
+
+Authors matched exactly: 315 of 324
+Excluded (no exact-match control): 9 (Health Sciences h=147, Life Sciences h=70, Life Sciences h=70, Life Sciences h=124, Life Sciences h=128, Life Sciences h=138, Life Sciences h=142, Physical Sciences h=80, Physical Sciences h=134)
+Pairs identical on h-index: 100.0%
+Citation balance (not matched on): SMD = 0.052 (|SMD| < 0.1 indicates balance)
+
+Stability across 500 random control draws:
+  Wilcoxon p: median 4.87e-10, range [2.45e-14, 4.37e-06]
+  Replicates with p < 0.001: 100%
+  Author win rate: 32.1% - 36.2%
+  Per-domain draw stability:
+    Health Sciences: wins 14.8%-25.9%; median p=9.41e-02; p<0.05 in 32% of draws
+    Life Sciences: wins 14.6%-20.7%; median p=1.55e-01; p<0.05 in 14% of draws
+    Physical Sciences: wins 39.5%-45.6%; median p=3.45e-10; p<0.05 in 100% of draws
+    Social Sciences: wins 9.1%-18.2%; not tested (insufficient pairs)
+
+Sensitivity: nearest-neighbor matching for excluded authors
+  (caliper |dh| <= max(2, 10% of author h))
+  Added NN pairs: 8 (|dh|: [1, 1, 1, 9, 9, 9, 11, 11]), still unmatched: 1
+  With NN pairs included: n=323, Author wins=34%, p=2.23e-11
+
+----------------------------------------
+4. HIDDEN STEWARDS
+----------------------------------------
+
+Hidden stewards: researchers with HIGH S-index but LOW traditional metrics.
+
+Threshold computation methodology:
+  - S-index threshold: computed on S > 0 researchers only
+    (What counts as 'high' among active data sharers)
+  - Traditional metric threshold: computed on ALL researchers
+    (What counts as 'low' in the full population, including zeros)
+
+--- S-index vs h-index ---
+
+Percentile method:
+  S threshold (75th %ile of S>0, n=1745): >= 18.0
+  h-index threshold (50th %ile of all, n=13940): <= 6.0
+  Hidden stewards identified: 111
+  Top examples:
+    - Jennifer k. Bussells: S=1007, h=1
+    - Shirley He: S=544, h=5
+    - Granville Bud Potter: S=433, h=6
+    - R. D. Hare: S=317, h=1
+    - Sara K. Farrell: S=274, h=3
+
+--- S-index vs citation count ---
+
+Percentile method:
+  S threshold (75th %ile of S>0, n=1745): >= 18.0
+  citation count threshold (50th %ile of all, n=13940): <= 193.0
+  Hidden stewards identified: 92
+  Top examples:
+    - R. D. Hare: S=317, citations=149
+    - Sara K. Farrell: S=274, citations=168
+    - C. S. Krawczyk: S=273, citations=49
+    - LT Tostanoski: S=263, citations=19
+    - A. K. Thompson: S=197, citations=25
+
+=== HIDDEN STEWARDS BY DOMAIN ===
+
+Domain                   | vs h-index | vs citations
+-------------------------------------------------------
+Life Sciences            |   25 ( 1.1%)|   24 ( 1.1%)|
+Health Sciences          |   32 ( 1.2%)|   28 ( 1.1%)|
+Physical Sciences        |   42 ( 0.8%)|   35 ( 0.6%)|
+Social Sciences          |   21 ( 0.7%)|   15 ( 0.5%)|
+
+============================================================

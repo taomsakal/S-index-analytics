@@ -1,0 +1,54 @@
+{
+  "h": {
+    "all_researchers": {
+      "metric": "h-index",
+      "domain": "All",
+      "H_S_given_metric": 0.4331079085152423,
+      "H_S": 0.4524057764617891,
+      "ratio": 0.957343895788703,
+      "n_bins_used": 2,
+      "n": 13940,
+      "n_total": 13940,
+      "n_s_positive": 1745,
+      "s_positive_only": false
+    },
+    "s_positive_only": {
+      "metric": "h-index",
+      "domain": "All",
+      "H_S_given_metric": 3.008411267140388,
+      "H_S": 3.0649120169177673,
+      "ratio": 0.9815652947081336,
+      "n_bins_used": 9,
+      "n": 1745,
+      "n_total": 13940,
+      "n_s_positive": 1745,
+      "s_positive_only": true
+    }
+  },
+  "citations": {
+    "all_researchers": {
+      "metric": "citation count",
+      "domain": "All",
+      "H_S_given_metric": 0.4310937647279709,
+      "H_S": 0.4524057764617891,
+      "ratio": 0.9528918222475035,
+      "n_bins_used": 2,
+      "n": 13940,
+      "n_total": 13940,
+      "n_s_positive": 1745,
+      "s_positive_only": false
+    },
+    "s_positive_only": {
+      "metric": "citation count",
+      "domain": "All",
+      "H_S_given_metric": 2.9712856679342954,
+      "H_S": 3.0649120169177673,
+      "ratio": 0.969452190318459,
+      "n_bins_used": 9,
+      "n": 1745,
+      "n_total": 13940,
+      "n_s_positive": 1745,
+      "s_positive_only": true
+    }
+  }
+}

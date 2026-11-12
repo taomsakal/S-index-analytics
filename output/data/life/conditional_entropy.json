@@ -1,0 +1,54 @@
+{
+  "h": {
+    "all_researchers": {
+      "metric": "h-index",
+      "domain": "Life Sciences",
+      "H_S_given_metric": 0.44099515516821386,
+      "H_S": 0.44747953661688444,
+      "ratio": 0.9855090994826379,
+      "n_bins_used": 2,
+      "n": 2218,
+      "n_total": 2218,
+      "n_s_positive": 224,
+      "s_positive_only": false
+    },
+    "s_positive_only": {
+      "metric": "h-index",
+      "domain": "Life Sciences",
+      "H_S_given_metric": 2.9383138975611423,
+      "H_S": 3.2432617689447385,
+      "ratio": 0.9059749434030984,
+      "n_bins_used": 10,
+      "n": 224,
+      "n_total": 2218,
+      "n_s_positive": 224,
+      "s_positive_only": true
+    }
+  },
+  "citations": {
+    "all_researchers": {
+      "metric": "citation count",
+      "domain": "Life Sciences",
+      "H_S_given_metric": 0.4407071245127012,
+      "H_S": 0.44747953661688444,
+      "ratio": 0.984865426125661,
+      "n_bins_used": 2,
+      "n": 2218,
+      "n_total": 2218,
+      "n_s_positive": 224,
+      "s_positive_only": false
+    },
+    "s_positive_only": {
+      "metric": "citation count",
+      "domain": "Life Sciences",
+      "H_S_given_metric": 2.9065113785045016,
+      "H_S": 3.2432617689447376,
+      "ratio": 0.8961692227051397,
+      "n_bins_used": 10,
+      "n": 224,
+      "n_total": 2218,
+      "n_s_positive": 224,
+      "s_positive_only": true
+    }
+  }
+}

@@ -1,0 +1,48 @@
+STRICT-JOURNAL KNOWN-GROUPS VALIDATION
+==========================================
+
+Definition: Scientific Data + Earth System Science Data only
+Excluded as qualifying journals: GigaScience; Biodiversity Data Journal
+Input rows: 13,940
+Headline matching seed: 42
+Eligible-control draws: 500
+Matching: exact 1:1 without replacement on (primary_domain, h_index)
+Inference: one-sided paired Wilcoxon; BH FDR across Overall and computable fields
+
+MATCHING
+--------
+Eligible strict-journal authors: 271
+Exact matched pairs: 264
+Authors without exact controls: 7
+Researchers excluded for no classified domain: 911
+Exact h-index match rate: 100.0%
+Citation SMD: 0.0493
+
+PRIMARY AND FIELD RESULTS
+-------------------------
+Overall: n=264; S>0 authors 40.9% vs controls 15.5%; author wins 39.0% vs control wins 10.2%; Wilcoxon p=8.35061e-11; FDR p=3.34024e-10
+Health Sciences: n=23; S>0 authors 30.4% vs controls 13.0%; author wins 30.4% vs control wins 8.7%; Wilcoxon p=0.025205; FDR p=0.0288976
+Life Sciences: n=55; S>0 authors 23.6% vs controls 9.1%; author wins 23.6% vs control wins 7.3%; Wilcoxon p=0.0288976; FDR p=0.0288976
+Physical Sciences: n=176; S>0 authors 48.9% vs controls 15.3%; author wins 46.6% vs control wins 9.1%; Wilcoxon p=1.71891e-10; FDR p=3.43781e-10
+Social Sciences: n=10; S>0 authors 20.0% vs controls 60.0%; author wins 10.0% vs control wins 50.0%; Wilcoxon p=not tested; FDR p=not tested; Sample too small for reliable inference (n=10 < 15)
+
+500-DRAW STABILITY
+------------------
+Overall: p<0.05 in 100.0% of draws; p<0.001 in 100.0%; FDR p<0.05 in 100.0%; p range 2.68536e-15 to 3.44341e-06; median author-win rate 38.6%
+Health Sciences: p<0.05 in 42.0% of draws; p<0.001 in 0.0%; FDR p<0.05 in 37.0%; median S>0 30.4% authors vs 13.0% controls; median author-win rate 30.4%
+Life Sciences: p<0.05 in 18.4% of draws; p<0.001 in 0.0%; FDR p<0.05 in 14.4%; median S>0 23.6% authors vs 10.9% controls; median author-win rate 21.8%
+Physical Sciences: p<0.05 in 100.0% of draws; p<0.001 in 100.0%; FDR p<0.05 in 100.0%; median S>0 48.9% authors vs 14.2% controls; median author-win rate 46.6%
+Social Sciences: not tested in stability draws (field sample below threshold)
+
+NEAREST-NEIGHBOR SENSITIVITY
+----------------------------
+Additional nearest-neighbor pairs: 6
+Authors still unmatched: 1
+Total sensitivity pairs: 270
+Sensitivity result: S>0 authors 41.5% vs controls 15.9%; Wilcoxon p=1.25838e-11
+
+INTERPRETATION BOUNDARY
+-----------------------
+This is a journal-based known-groups test. It supports convergent validity at the
+aggregate level; it does not prove that every coauthor personally deposited data
+or that journal publication caused a higher S-index.

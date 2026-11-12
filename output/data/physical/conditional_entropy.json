@@ -1,0 +1,54 @@
+{
+  "h": {
+    "all_researchers": {
+      "metric": "h-index",
+      "domain": "Physical Sciences",
+      "H_S_given_metric": 0.42326450507797864,
+      "H_S": 0.44234010471122237,
+      "ratio": 0.9568757175076923,
+      "n_bins_used": 2,
+      "n": 5405,
+      "n_total": 5405,
+      "n_s_positive": 657,
+      "s_positive_only": false
+    },
+    "s_positive_only": {
+      "metric": "h-index",
+      "domain": "Physical Sciences",
+      "H_S_given_metric": 2.9554986758144515,
+      "H_S": 3.0590789918070267,
+      "ratio": 0.9661400322548097,
+      "n_bins_used": 9,
+      "n": 657,
+      "n_total": 5405,
+      "n_s_positive": 657,
+      "s_positive_only": true
+    }
+  },
+  "citations": {
+    "all_researchers": {
+      "metric": "citation count",
+      "domain": "Physical Sciences",
+      "H_S_given_metric": 0.4206598920227407,
+      "H_S": 0.44234010471122237,
+      "ratio": 0.9509874586148244,
+      "n_bins_used": 2,
+      "n": 5405,
+      "n_total": 5405,
+      "n_s_positive": 657,
+      "s_positive_only": false
+    },
+    "s_positive_only": {
+      "metric": "citation count",
+      "domain": "Physical Sciences",
+      "H_S_given_metric": 2.943103965417589,
+      "H_S": 3.0590789918070267,
+      "ratio": 0.9620882537848654,
+      "n_bins_used": 9,
+      "n": 657,
+      "n_total": 5405,
+      "n_s_positive": 657,
+      "s_positive_only": true
+    }
+  }
+}

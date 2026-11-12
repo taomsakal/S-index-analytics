@@ -1,0 +1,180 @@
+# S-Index Analysis Code
+
+Analysis pipeline for the pilot study in *How Many Researchers Has Your Data
+Enabled? An S-index for the Spread of Shared Data*.
+
+A researcher's S-index is the number of unique researchers who have authored a
+scientific output citing any of their datasets, excluding each dataset's own
+coauthors. This repository takes researcher-level records (S-index, h-index,
+citation count, dataset count, domain and data journal publication counts) and
+reproduces the pilot study's statistics, tables, and figures.
+
+The code that collects the records from OpenAlex lives in a separate
+repository, [s-index-backend](https://github.com/szakal-byt3/s-index-backend).
+The records it produced for the pilot study are included here in `data/`.
+
+## Quick start
+
+Requires Python 3.9 or later. Run all commands from the repository root.
+
+```bash
+pip install -r requirements.txt
+python main.py
+```
+
+`main.py` takes a few minutes. It writes `resampled_data.csv` and
+`cleaned_data.csv` to the repository root and everything else to `output/`.
+
+Two robustness analyses of the known-groups test run separately, after
+`main.py`:
+
+```bash
+python utilities/run_strict_journal_known_groups.py
+python utilities/run_citation_matched_known_groups.py
+```
+
+To redraw the figures without repeating the analysis:
+
+```bash
+python utilities/generate_publication_figures.py
+```
+
+## What the pipeline does
+
+1. **Resample.** The raw sample was drawn as random dataset, then random
+   author, which over-represents authors with many datasets and
+   under-represents authors on large teams. Records are resampled without
+   replacement with weight `team_size / num_datasets`, down to the Kish
+   effective sample size.
+2. **Clean.** Remove organization and placeholder profiles, implausible
+   records, and the manually reviewed profiles listed in
+   `known_exclusions.csv`; deduplicate by OpenAlex ID, then by normalized
+   name. Assign each researcher one primary domain (the domain with the most
+   publications).
+3. **Validation report.** Correlations with h-index and citation count,
+   conditional entropy H(S | metric), known-groups comparison, and hidden
+   stewards, overall and per domain.
+4. **Per-domain exports.** Hidden steward lists and conditional entropy
+   results.
+5. **Figures.** Distributions, correlation matrices, and S-index vs metric
+   plots, overall and per domain.
+6. **Known-groups validation.** Data paper authors vs matched controls, with
+   500 random control draws and a nearest-neighbor sensitivity analysis.
+7. **Summary tables.**
+
+## Methods in brief
+
+**Hidden stewards** are researchers with an S-index at or above the 75th
+percentile of researchers with S > 0 and a comparison metric at or below the
+median of all researchers. Thresholds are set in `config.py`.
+
+**Known groups.** Data paper authors (at least one publication in *Scientific
+Data*, *Earth System Science Data*, *GigaScience*, or *Biodiversity Data
+Journal*) are matched 1:1 without replacement to controls with the same
+primary domain and exactly the same h-index. When several controls are
+eligible, one is drawn at random, so the analysis is repeated over 500 draws.
+Each matched set is tested with:
+
+- a one-sided paired Wilcoxon signed-rank test (authors > controls), with
+  Benjamini-Hochberg FDR correction across the overall test and the domains
+  with at least 15 pairs;
+- an exact sign test of author wins vs control wins;
+- an exact paired test of S > 0 prevalence (author positive and control zero
+  vs the reverse).
+
+Rows restricted to pairs with S > 0 are descriptive. The Wilcoxon test
+discards zero differences, so it gives the same result on that subset.
+
+Authors with no exact-match control are left out of the primary analysis and
+added back by nearest-neighbor matching in a sensitivity analysis. The two
+utility scripts repeat the comparison with a stricter journal list
+(*Scientific Data* and *Earth System Science Data* only) and with controls
+matched on citation count (within 10%) instead of h-index.
+
+## Repository layout
+
+| Path | Purpose |
+|------|---------|
+| `main.py` | Runs the full pipeline |
+| `config.py` | Thresholds, seed, paths, domain and metric definitions |
+| `data_loader.py` | Loading, filtering, and deduplication |
+| `resample.py` | Inverse probability weights, effective sample size, resampling |
+| `validation.py` | Correlations, conditional entropy, hidden stewards, text report |
+| `known_groups_validation.py` | Matching, paired tests, stability draws, known-groups figures |
+| `supplementary_tables.py` | Summary CSV tables |
+| `visualization.py`, `viz_config.py` | Figures and figure styling |
+| `known_exclusions.csv` | Manually reviewed profiles to exclude, with reason and evidence |
+| `utilities/` | Robustness analyses and figure regeneration |
+| `tests/` | Test suite |
+| `data/` | Raw pilot study records (one CSV per collection batch) |
+| `output/` | Results of the pilot study run |
+
+## Input data
+
+`data/` holds one or more CSV files with one row per sampled researcher.
+Column names are case-insensitive, and hyphens are read as underscores.
+
+| Column | Description |
+|--------|-------------|
+| `openalex_id` | OpenAlex author ID |
+| `name` | Display name |
+| `s_index` | S-index |
+| `h_index` | h-index |
+| `cited_by_count` | Total citations |
+| `num_datasets` | Number of datasets authored |
+| `team_size` | Author count of the dataset through which the researcher was sampled |
+| `scientific_data_pubs`, `essd_pubs`, `gigascience_pubs`, `bds_pubs` | Publications in each data journal |
+| `life_sciences`, `health_sciences`, `physical_sciences`, `social_sciences` | Publications in each domain |
+
+To analyze a different sample, replace the files in `data/` or point
+`RAW_DATA_SOURCE` in `config.py` at another file or directory.
+
+## Outputs
+
+```
+output/
+  validation_report.txt                      Full text report
+  known_groups_strict_journals_report.txt    Two-journal sensitivity analysis
+  known_groups_citation_matched_report.txt   Citation-matched robustness analysis
+  tables/                                    Summary tables (CSV)
+  figures/
+    all/, life/, health/, physical/, social/ Distribution, correlation, and scatter plots
+    known_groups/                            Author vs control comparisons
+  data/
+    all/, life/, health/, physical/, social/ Hidden steward lists, conditional entropy (JSON)
+    known_groups/                            Matched pairs and the 500 stability draws
+    known_groups_strict_journals/            Same, two-journal definition
+    known_groups_citation_matched/           Same, citation matching
+```
+
+Figures are PNG at 300 DPI.
+
+## Reproducibility
+
+All random steps use the seed in `config.py` (42). Rerunning the pipeline on
+the included data reproduces `output/`; p-values can differ in the last
+printed digits across platforms and library versions.
+
+The included outputs were generated with Python 3.14, pandas 3.1, NumPy 2.5,
+SciPy 1.18, statsmodels 0.15, and matplotlib 3.11.
+
+## Tests
+
+```bash
+pytest
+```
+
+## Known limitations
+
+- **Name deduplication is a heuristic.** Different people who share a name
+  are merged into one record. Names are compared after removing everything
+  except ASCII letters and digits, so a name with none of these (for example,
+  one written entirely in Cyrillic) cannot be compared and its record is
+  excluded. This removes 65 of the 15,736 resampled records in the pilot
+  study. The pipeline prints the count.
+- **Organization screening is keyword-based.** Some institutional or project
+  profiles pass the filter, and a researcher whose name contains a keyword
+  (for example, "Press" or "Center") is removed.
+- **OpenAlex metadata.** Merged or split author profiles and non-data
+  resources indexed as datasets affect individual S-index values. Only the
+  profiles in `known_exclusions.csv` are corrected for.

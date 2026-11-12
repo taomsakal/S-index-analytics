@@ -1,0 +1,54 @@
+{
+  "h": {
+    "all_researchers": {
+      "metric": "h-index",
+      "domain": "Social Sciences",
+      "H_S_given_metric": 0.39674997690625036,
+      "H_S": 0.4592042319011167,
+      "ratio": 0.8639946005368805,
+      "n_bins_used": 2,
+      "n": 2806,
+      "n_total": 2806,
+      "n_s_positive": 537,
+      "s_positive_only": false
+    },
+    "s_positive_only": {
+      "metric": "h-index",
+      "domain": "Social Sciences",
+      "H_S_given_metric": 2.863894528095704,
+      "H_S": 3.0094848580646754,
+      "ratio": 0.9516228401751798,
+      "n_bins_used": 9,
+      "n": 537,
+      "n_total": 2806,
+      "n_s_positive": 537,
+      "s_positive_only": true
+    }
+  },
+  "citations": {
+    "all_researchers": {
+      "metric": "citation count",
+      "domain": "Social Sciences",
+      "H_S_given_metric": 0.3943933974021223,
+      "H_S": 0.4592042319011167,
+      "ratio": 0.8588627238240467,
+      "n_bins_used": 2,
+      "n": 2806,
+      "n_total": 2806,
+      "n_s_positive": 537,
+      "s_positive_only": false
+    },
+    "s_positive_only": {
+      "metric": "citation count",
+      "domain": "Social Sciences",
+      "H_S_given_metric": 2.791759510925982,
+      "H_S": 3.0094848580646754,
+      "ratio": 0.9276536160149657,
+      "n_bins_used": 9,
+      "n": 537,
+      "n_total": 2806,
+      "n_s_positive": 537,
+      "s_positive_only": true
+    }
+  }
+}
